@@ -8,5 +8,73 @@
 \author{Vítor de Albuquerque Torreão}
 	
 \maketitle
+
+\section*{Objetivo}
+
+O objetivo deste trabalho é comparar dois algoritmos de classificação de padrões 
+com relação às suas taxas de classificação para a base de dados de Diabetes.
+
+\section*{Resultados}
+Foram desenvolvidos, na linguagem de programação Python \cite{python.org}, dois 
+algoritmos de classificação de padrões. O Perceptron \cite{perceptron} e o KNN 
+\cite{knn}.
+
+O código está disponível no GitHub \cite{git}.
+
+A Tabela abaixo mostra os resultados obtidos com diferentes parâmetros 
+para os dois algoritmos.
+
+\begin{center}
+	\begin{tabular}{| l | c |}
+		\hline
+		\textbf{Algoritmo} & \textbf{Média da Taxa de Erro} \\ \hline
+		Perceptron ($\alpha = 0.1; N = 1000$) & 53.04347826086957\% \\ \hline
+		Perceptron ($\alpha = 0.3; N = 1000$) & 43.95652173913044\% \\ \hline
+		Perceptron ($\alpha = 0.4; N = 1000$) & 42.69565217391304\% \\ \hline
+		Perceptron ($\alpha = 0.5; N = 1000$) & 43.21739130434783\% \\ \hline
+		Perceptron ($\alpha = 0.1; N = 2000$) & 53.47826086956522\% \\ \hline
+		Perceptron ($\alpha = 0.3; N = 2000$) & 46.69565217391304\% \\ \hline
+		Perceptron ($\alpha = 0.4; N = 2000$) & 47.173913043478255\% \\ \hline
+		Perceptron ($\alpha = 0.5; N = 2000$) & 41.521739130434787\% \\ \hline
+		KNN ($k = 1$) & 30.34782608695652\% \\ \hline
+		KNN ($k = 5$) & 25.95652173913044\% \\ \hline
+		KNN ($k = 10$) & 27.17391304347826\% \\ \hline
+		KNN ($k = 15$) & 26.82608695652174\% \\ \hline
+		KNN ($k = 20$) & 24.73913043478261\% \\ \hline
+		KNN ($k = 25$) & 25.91304347826087\% \\ \hline
+		KNN ($k = 30$) & 24.60869565217391\% \\ \hline
+		KNN ($k = 35$) & 25\% \\ \hline
+	\end{tabular}
+\end{center}
+
+Onde $\alpha$ é a taxa de aprendizagem do Perceptron e $N$ é o número máximo de 
+épocas até que o aprendizado acabe. O parâmetro $k$, do KNN, é o número de 
+vizinhos mais próximos que serão avaliados para cada elemento do conjunto de 
+testes.
+
+Podemos perceber que o Perceptron com taxa de aprendizagem $0.5$ e duas mil 
+épocas se saiu melhor dentre os outros Perceptrons, mas conseguiu uma taxa de 
+sucesso de aproximadamente apenas $58.47\%$.
+
+Já o KNN, se saiu melhor com $k = 30$, que obteve uma taxa de sucesso de 
+aproximadamente $75.39\%$. Mas note que não há uma grande diferença com 
+relação ao KNN com $k = 20$, que obteve taxa de sucesso de $75.26\%$.
+
+Fica claro que entre os dois algoritmos, o KNN teve um melhor desempenho que 
+o Perceptron para a base de diabetes e com relação à taxa de erro na 
+classificação.
+
+A taxa de classificação do Perceptron foi baixa. Foram feitas tentativas de 
+ajuste dos parâmetros para aumentar sua eficiência, mas os efeitos foram 
+pequenos. Sabe-se que o Perceptron não é adequado para problemas que não sejam 
+linearmente separáveis. Esse é o caso em muitos dos problemas complexos do 
+mundo real. Diagnósticos médios são exemplos desse tipo de problema.
+
+Apesar da taxa do KNN ter sido relativamente boa, para problemas de diagnóstico 
+médio, que influenciam diretamente na vida das pessoas, se fazem 
+necessárias taxas maiores.
 	
+\bibliography{lista3}
+\bibliographystyle{plain}
+
 \end{document}
