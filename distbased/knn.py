@@ -27,7 +27,6 @@ class KNN:
 			clss += [self.clss[ind]]
 		return int(stats.mode(clss)[0][0])
 
-
 def repeat(array, times):
 	r = []
 	for i in range(0, times):

@@ -1,9 +1,9 @@
-def degrau(x):
+def step(x):
 	return 0 if x < 0.5 else 1
 
 class Perceptron:
 
-	def __init__(self, numberOfInputs, activationFunction):
+	def __init__(self, numberOfInputs, activationFunction=step):
 		"""
 		Constructor of class Perceptron.
 
@@ -41,9 +41,10 @@ class Perceptron:
 		"""
 		import numpy
 		stop = False
-		while not stop or epoch > maximumEpochs:
-			epoch = 0
+		epoch = 0
+		while not stop and epoch < maximumEpochs:
 			stop = True
+			#print("\rTraining... "+str(epoch)),
 			for instance in trainingSet:
 				d = instance[-1]
 				x = numpy.array([instance[:-1]])
@@ -54,7 +55,7 @@ class Perceptron:
 				if e > 0:
 					stop = False
 				self.weights = self.weights + alpha * e * x
-				epoch += 1
+			epoch += 1
 
 	def classify(self, pattern):
 		"""
